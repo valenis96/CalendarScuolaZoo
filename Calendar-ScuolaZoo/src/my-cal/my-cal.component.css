@@ -1,0 +1,8 @@
+.calendar{
+  display: flex;
+  justify-content: space-around;
+}
+
+.calendar__format{
+  width: 70%;
+}

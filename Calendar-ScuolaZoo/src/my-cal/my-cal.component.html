@@ -1,0 +1,31 @@
+<div class="calendar">
+    <div class="calendar__select">
+        <mat-form-field appearance="fill">
+            <mat-label>Choose the format</mat-label>
+            <mat-select [(value)]="selectedFormat">
+            <mat-option *ngFor="let format of formats" [value]="format.value">
+                {{format.viewValue}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="calendar__format">
+        <div *ngIf="selectedFormat==='month'">
+            <mat-card class="demo-inline-calendar-card">
+                <mat-calendar [(selected)]="selected"></mat-calendar>
+            </mat-card>
+        </div>
+
+        <div *ngIf="selectedFormat==='week'">
+            <mwl-calendar-week-view [viewDate]="viewDate"></mwl-calendar-week-view>
+        </div>
+
+        <div *ngIf="selectedFormat==='day'">
+            <mwl-calendar-day-view [viewDate]="viewDate"></mwl-calendar-day-view>
+        </div>
+    </div>
+
+</div>
+
+<p>Selected date: {{selected}}</p>
