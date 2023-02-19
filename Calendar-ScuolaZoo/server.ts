@@ -29,6 +29,12 @@ export function app(): express.Express {
     maxAge: '1y'
   }));
 
+const eventsData = require('./server/data/events');
+
+  server.get('/api/events', (req, res, next) => {
+    res.status(200).send(eventsData.getEvents);
+  })
+
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });

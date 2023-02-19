@@ -8,24 +8,38 @@
             </mat-option>
             </mat-select>
         </mat-form-field>
+        <div *ngIf="selectedFormat==='month'; else createEvent">
+            <hr>
+            <p class="calendar__label">Choose the date you want create the event</p>
+            <hr>
+        </div>
+        <ng-template #createEvent>
+            <div>
+                <button mat-button class="calendar__button" (click)="changeView()">Create Event</button>
+            </div>
+        </ng-template>
+        <div class="calendar-events" *ngFor="let event of eventItems$ | async">
+             <div>{{event.date.toDateString()}}</div>
+             <div>Title: {{event.title}}</div>
+             <div>Description: {{event.description}}</div>
+             <div>Start: {{event.time}}</div>
+        </div>
     </div>
 
     <div class="calendar__format">
         <div *ngIf="selectedFormat==='month'">
             <mat-card class="demo-inline-calendar-card">
-                <mat-calendar [(selected)]="selected"></mat-calendar>
+                <mat-calendar [(selected)]="selected" (click)="openDialog(selected)"></mat-calendar>
             </mat-card>
         </div>
 
         <div *ngIf="selectedFormat==='week'">
-            <mwl-calendar-week-view [viewDate]="viewDate"></mwl-calendar-week-view>
+            <mwl-calendar-week-view [viewDate]="viewDate" [events]="events"></mwl-calendar-week-view>
         </div>
 
         <div *ngIf="selectedFormat==='day'">
-            <mwl-calendar-day-view [viewDate]="viewDate"></mwl-calendar-day-view>
+            <mwl-calendar-day-view [viewDate]="viewDate" [events]="events"></mwl-calendar-day-view>
         </div>
     </div>
 
 </div>
-
-<p>Selected date: {{selected}}</p>

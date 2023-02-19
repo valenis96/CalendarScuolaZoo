@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Create your event</h1>
+<div mat-dialog-content>
+  <p class="dialog__date">Date: {{date}}</p>
+  <p class="dialog__label">Title:</p>
+  <form #myform="ngForm" (ngSubmit)="addEvent()">
+    <div id="event-data" ngModelGroup="eventData" #eventTitle="ngModelGroup">
+      <mat-form-field appearance="fill">
+        <mat-label for="title">Event's title</mat-label>
+        <input type="text" id="title" matInput ngModel name="title" [(ngModel)]="data.title" required >
+      </mat-form-field>
+      <p class="dialog__label">Description:</p>
+      <mat-form-field appearance="fill">
+        <mat-label for="description" >Event's description</mat-label>
+        <input type="text" id="description" matInput ngModel name="description" [(ngModel)]="data.description" required>
+      </mat-form-field>
+      <p class="dialog__label">Start:</p>
+      <mat-form-field appearance="fill">
+        <mat-label for="time"></mat-label>
+        <input type="time" matInput id="time" matInput ngModel name="time" [(ngModel)]="data.time" required>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">No Thanks</button>
+      <button type="submit" [mat-dialog-close]="data" mat-button cdkFocusInitial>Ok</button>
+    </div>
+  </form>
+</div>

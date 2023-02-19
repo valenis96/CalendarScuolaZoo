@@ -1,0 +1,58 @@
+.calendar{
+  display: flex;
+  justify-content: space-around;
+}
+
+.calendar__select{
+  width: 20%;
+}
+
+.calendar__format{
+  width: 60%;
+}
+
+div, span, b, p {
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+}
+
+button {
+  border: 3px solid whitesmoke;
+}
+
+.calendar__label{
+  color: #0000008A;
+}
+
+.calendar__button{
+  width: 100%;
+}
+
+.calendar-events{
+  margin-top: 20px;
+  background-color: #4051b514;
+  padding: 10px;
+}
+
+.cal-week-view .cal-time, 
+.cal-day-headers b {
+  font-weight: normal;
+}
+
+.cal-week-view 
+.cal-header.cal-today{
+  background-color: #3f51b54d;
+}
+
+.cal-week-view .cal-header.cal-weekend span {
+  color: #3f51b5;
+  opacity: 1;
+}
+
+.cal-week-view .cal-hour-odd{
+  background-color: #4051b514;
+}
+
+.mdc-dialog__container{
+  width: 450px;
+}

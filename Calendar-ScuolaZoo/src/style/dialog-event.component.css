@@ -1,0 +1,24 @@
+.mdc-dialog__content{
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  padding-bottom: 0;
+}
+
+.mdc-dialog__actions{
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.dialog__date{
+  text-align: center;
+  margin: 0;
+}
+
+.dialog__label{
+  margin-top: 4px;
+}
+
+.mat-mdc-form-field{
+  width: 100%;
+}
